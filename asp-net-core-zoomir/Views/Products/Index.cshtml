@@ -1,0 +1,48 @@
+﻿@model IEnumerable<asp_net_core_zoomir.Models.Product>
+
+@{
+    ViewData["Title"] = "Магазин";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Магазин</h1>
+
+<div class="row">
+
+@foreach (var item in Model) {
+        @*<div class="card" style="width: 20rem;">
+            <img src="/img/@item.Img" class="img-fluid rounded-start" style="max-width: 100%;">
+        <div class="card-body">
+            <h5 class="card-title">@item.ProductName</h5>
+            <p class="card-text">@item.Cena руб.</p>
+            <a href="#" class="btn btn-primary">Детали</a>
+        </div>
+    </div>*@
+        <div class="card mb-3" style="width: 540px;height:260px;">
+            <div class="row g-0 ">
+                <div class="col-md-4">
+                    <img src="/img/@item.Img" style="width: 350px;" class="img-fluid rounded-start img-thumbnail">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.ProductName</h5>
+                        <p class="card-text">@item.Cena руб.</p>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-dark">Детали</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+           @* <td>
+            @Html.DisplayFor(modelItem => item.Opisanie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PunctVedache)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nalichie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Skidka)
+            </td>*@
+}
+</div>

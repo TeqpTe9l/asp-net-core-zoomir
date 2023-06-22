@@ -1,0 +1,72 @@
+﻿@model IEnumerable<asp_net_core_zoomir.Models.Product>
+
+@{
+    ViewData["Title"] = "Админская";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Админская</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-dark">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Название
+            </th>
+            <th>
+                Описание
+            </th>
+            <th>
+                Картинка
+            </th>
+            <th>
+                Цена
+            </th>
+            <th>
+               Пункт выдачи
+            </th>
+            <th>
+                Наличие
+            </th>
+            <th>
+                Скидка
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opisanie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Img)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PunctVedache)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nalichie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Skidka)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn">Изменить</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-info">Детали</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn ">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

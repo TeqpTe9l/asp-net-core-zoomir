@@ -1,0 +1,61 @@
+﻿@model asp_net_core_zoomir.Models.Product
+
+@{
+    ViewData["Title"] = "Детали";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Детали</h1>
+
+<div>
+    <h4>Продукт </h4>
+    <hr />
+    <img src="/img/@Url.Content(Model.Img)" class="rounded float-start" style="width: 190px;">
+    <dl class="row">
+        <dt class = "col-sm-2">
+           Название
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt class = "col-sm-2">
+            Описание
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Opisanie)
+        </dd>
+        <dt class = "col-sm-2">
+            Изображение
+        </dt>
+        <dd class = "col-sm-10">
+            
+        </dd>
+        <dt class = "col-sm-2">
+            Цена
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cena) руб.
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PunctVedache)
+        </dt>
+        <dd class = "col-sm-10">
+            Пункт выдачи
+        </dd>
+        <dt class = "col-sm-2">
+            Наличие
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nalichie)
+        </dd>
+        <dt class = "col-sm-2">
+            Скидка
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Skidka)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
